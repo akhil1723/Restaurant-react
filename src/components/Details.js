@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Col, Row, Image, ListGroup } from 'react-bootstrap'
+import { Col, Row, Image, ListGroup, Card } from 'react-bootstrap'
 import { Link } from 'react-router-dom'
+import Reviews from './Reviews'
 
 function Details() {
   const [data, setData] = useState([]);
@@ -51,7 +52,13 @@ function Details() {
               <p>Sunday   : {details.operating_hours.Sunday}</p>
             </ListGroup.Item>
           </Col>
+          <Row>
+        <Card className='my-3 mx-3 p-3 rounded'>
+          <Reviews data={details.reviews}></Reviews>
+        </Card>
+       </Row>
         </Row>
+       
       ) : null}
     </div>
   )
